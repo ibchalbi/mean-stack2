@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
-import { PostCreateComponent } from './posts/post-create/post-create.component';
+import { CommentCreateComponent } from './comments/comment-create/comment-create.component';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,21 +17,21 @@ import {
   MatToolbarModule,
   MatExpansionModule
 } from '@angular/material';
-import { PostListComponent } from './posts/post-list/post-list.component';
+import { CommentListComponent } from './comments/';
 
 import { RouterModule, Routes } from '@angular/router';
 
-import { PostService } from './post.service';
+import { CommentService } from './comment.service';
 
 const routes: Routes = [
-  {path: 'create', component: PostCreateComponent}
+  {path: 'create', component: CommentCreateComponent}
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    PostCreateComponent,
+    CommentCreateComponent,
     HeaderComponent,
-    PostListComponent
+    CommentListComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +44,7 @@ const routes: Routes = [
     MatExpansionModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [PostService],
+  providers: [CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
