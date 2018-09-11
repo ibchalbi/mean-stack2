@@ -1,7 +1,7 @@
 
 
 export interface Comment {
-  id: String;
+  _id: String;
   title: String;
   responsible: String;
   content: String;

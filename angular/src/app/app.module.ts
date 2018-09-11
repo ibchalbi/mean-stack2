@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatInputModule,
   MatCardModule,
@@ -17,14 +18,15 @@ import {
   MatToolbarModule,
   MatExpansionModule
 } from '@angular/material';
-import { CommentListComponent } from './comments/';
+import { CommentListComponent } from './comments/comment-list/comment-list.component';
 
 import { RouterModule, Routes } from '@angular/router';
 
 import { CommentService } from './comment.service';
 
 const routes: Routes = [
-  {path: 'create', component: CommentCreateComponent}
+  {path: 'create', component: CommentCreateComponent},
+  {path: 'list', component: CommentListComponent}
 ];
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ const routes: Routes = [
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [CommentService],
   bootstrap: [AppComponent]

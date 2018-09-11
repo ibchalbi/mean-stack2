@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { CommentService } from '../../comment.service';
+import { FormGroup, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comment-create',
@@ -8,8 +9,16 @@ import { CommentService } from '../../comment.service';
   styleUrls: ['./comment-create-component.css']
 })
 export class CommentCreateComponent {
+  createForm: FormGroup;
+  constructor(public commentService: CommentService, private router: Router) {
 
-  constructor(public commentService: CommentService) {}
+  }
 
+  addComment(form: NgForm) {
+    this.commentService.addComment(form.value.title, form.value.responsible, form.value.content).subscribe(() => {
+      this.router.navigate(['list']);
+
+    });
+   }
 
 }

@@ -1,13 +1,13 @@
-<mat-accordion multi="true" *ngIf="posts.length > 0">
-  <mat-expansion-panel *ngFor="let post of posts">
+<mat-accordion multi="true" *ngIf="comments.length > 0">
+  <mat-expansion-panel *ngFor="let comment of comments">
     <mat-expansion-panel-header>
-        {{ post.title }}
+        {{ comment.title }}
     </mat-expansion-panel-header>
-    <p>{{ post. content }}</p>
+    <p>{{ comment.content }}</p>
     <mat-action-row>
-      <button mat-button color="primary">Edit</button>
-      <button mat-button color="warn">Delete</button>
+      <button mat-button color="primary" (click)="editComment(comment._id)">Edit</button>
+      <button mat-button color="warn" (click)="deleteComment(comment._id)">Delete</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet</p>
+<p class="info-text mat-body-1" *ngIf="comments.length <= 0">No posts added yet</p>
